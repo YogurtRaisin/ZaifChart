@@ -9,9 +9,9 @@ body {
 }
 
 #dispChart {
-    float: center;
-    font-size: 25px;
-    padding: 5px;
+    text-align: center;
+    font-size: 10vw;
+    margin: auto;
 }
 
 #dispClock {

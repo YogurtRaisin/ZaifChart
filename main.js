@@ -28,24 +28,19 @@ app.on("window-all-closed", () => {
 
 app.on('ready', function () {
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 60,
-    maxWidth: 400,
-    maxHeight: 80,
-    minWidth: 150,
-    minHeight: 60,
-    resizable: true,
+    width: 200,
+    height: 50,
+    resizable: false,
     frame: false,
     transparent: true,
     alwaysOnTop: true,
     skipTaskbar: true
    });
-
-  mainWindow.setIgnoreMouseEvents(!clickable)
+  mainWindow.setIgnoreMouseEvents(!clickable);
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
   mainWindow.setPosition(setWin["x"], setWin["y"]);
-  mainWindow.setSize(setWin["width"], setWin["height"]);
+  //mainWindow.setSize(setWin["width"], setWin["height"]);
 
   // タスクトレイに格納
   Menu = electron.Menu;
@@ -57,6 +52,8 @@ app.on('ready', function () {
     var contextMenu = Menu.buildFromTemplate([
         { label: "show", click: function () { mainWindow.focus(); } },
         { label: "TradeView", click: function () { shell.openExternal("https://coincheck.com/exchange/tradeview"); } },
+        { label: "clickThrough", click: function () { mainWindow.setIgnoreMouseEvents(clickable); } },
+        { label: "not clickThrough", click: function () { mainWindow.setIgnoreMouseEvents(!clickable); } },
         { label: "exit", click: function () { mainWindow.close(); } }
     ]);
     tray.setContextMenu(contextMenu);
@@ -65,8 +62,8 @@ app.on('ready', function () {
     tray.setToolTip(app.getName());
 
     // タスクトレイが左クリックされた場合、アプリのウィンドウをアクティブに
-    tray.on("clicked", function () {
-          mainWindow.focus();
+    tray.on("double-click", function () {
+      shell.openExternal("https://coincheck.com/exchange/tradeview");
     });
 
 
