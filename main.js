@@ -34,9 +34,10 @@ app.on('ready', function () {
     frame: false,
     transparent: true,
     alwaysOnTop: true,
+    //resizable:true,
     skipTaskbar: true
    });
-  mainWindow.setIgnoreMouseEvents(!clickable);
+  mainWindow.setIgnoreMouseEvents(clickable);
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
   mainWindow.setPosition(setWin["x"], setWin["y"]);

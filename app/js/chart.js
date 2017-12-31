@@ -2,6 +2,9 @@ const https = require('https');
 
 const url = 'https://coincheck.com/api/ticker';
 
+let result;
+let lastRate;
+
 //function dispTime(num) { // 時刻表示を二桁に設定（例：１時5分(1:5)->01:05）
 //    if (num <= 9) {
 //        num = "0" + num;
@@ -34,7 +37,18 @@ function chart() {
     https.get(url, (res) => {
       res.setEncoding('utf8');
       res.on('data', (d) => {
-        let result = JSON.parse(d).last;
+        result = JSON.parse(d).last;
+
+        if (result > lastRate) {
+          document.getElementById("dispChart").className = "rate-up";
+        } else if (result < lastRate) {
+          document.getElementById("dispChart").className = "rate-down";
+        } else {
+          document.getElementById("dispChart").className = "";
+        }
+
+        lastRate = result;
+
         document.getElementById('dispChart').innerHTML = result;
       });
 

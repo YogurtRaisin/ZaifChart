@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Bookman Old Style', sans-serif;
     text-align: center;
     color: white;
     background-color: rgba(24, 24, 24, .7);
@@ -10,8 +10,16 @@ body {
 
 #dispChart {
     text-align: center;
-    font-size: 10vw;
+    font-size: 2rem;
     margin: auto;
+}
+
+.rate-up {
+  color: dodgerblue;
+}
+
+.rate-down {
+  color: red;
 }
 
 #dispClock {
