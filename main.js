@@ -3,6 +3,10 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const fs = require('fs');
+
+const setWin = require("./setWin.json");
+const path = require('path').join(__dirname, 'setWin.json');
 
 let mainWindow = null;
 
@@ -25,6 +29,14 @@ app.on('ready', function () {
     transparent: true
    });
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+
+  mainWindow.setPosition(setWin["x"], setWin["y"]);
+  mainWindow.setSize(setWin["width"], setWin["height"]);
+
+  mainWindow.on('close', function () {
+    let item = JSON.stringify(mainWindow.getBounds());
+    fs.writeFile(path, item);;
+  });
 
   mainWindow.on('closed', function () {
     mainWindow = null;
