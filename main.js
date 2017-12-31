@@ -3,6 +3,7 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const shell = electron.shell;
 const fs = require('fs');
 
 const setWin = require("./setWin.json");
@@ -55,6 +56,7 @@ app.on('ready', function () {
     // タスクトレイに右クリックメニューを追加
     var contextMenu = Menu.buildFromTemplate([
         { label: "show", click: function () { mainWindow.focus(); } },
+        { label: "TradeView", click: function () { shell.openExternal("https://coincheck.com/exchange/tradeview"); } },
         { label: "exit", click: function () { mainWindow.close(); } }
     ]);
     tray.setContextMenu(contextMenu);
@@ -64,7 +66,7 @@ app.on('ready', function () {
 
     // タスクトレイが左クリックされた場合、アプリのウィンドウをアクティブに
     tray.on("clicked", function () {
-        mainWindow.focus();
+          mainWindow.focus();
     });
 
 
