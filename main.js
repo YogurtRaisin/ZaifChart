@@ -11,10 +11,6 @@ const path = require('path').join(__dirname, 'setWin.json');
 
 const icon = __dirname + '/icon.png';
 
-const appFolder = path.dirname(process.execPath);
-const updateExe = path.resolve(appFolder, '..', 'CCC.exe');
-const exeName = path.basename(process.execPath);
-
 // GCÇ≥ÇÍÇ»Ç¢ÇÊÇ§Ç…ÉOÉçÅ[ÉoÉãêÈåæ
 let mainWindow = null;
 var Menu = null;
@@ -66,16 +62,14 @@ app.on('ready', function () {
           mainWindow.setIgnoreMouseEvents(!clickable);
         } },
         { label: "startup", click: function () {
-            app.setLoginItemSetting({
-              openAtLogin: true,
-              path: updateExe
-            });
+          app.setLoginItemSettings({
+            openAtLogin: true
+          });
         } },
         { label: "not startup", click: function () {
-            app.setLoginItemSetting({
-              openAtLogin: false,
-              path: updateExe
-            });
+          app.setLoginItemSettings({
+            openAtLogin: false
+          });
         } },
         { label: "exit", click: function () { mainWindow.close(); } }
     ]);
