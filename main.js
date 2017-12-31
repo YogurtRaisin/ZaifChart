@@ -14,8 +14,15 @@ app.on('window-all-closed', function () {
 app.on('ready', function () {
 
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
+    width: 400,
+    height: 60,
+    maxWidth: 400,
+    maxHeight: 80,
+    minWidth: 150,
+    minHeight: 60,
+    resizable: true,
+    frame: false,
+    transparent: true
    });
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
 
