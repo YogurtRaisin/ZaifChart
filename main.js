@@ -11,6 +11,10 @@ const path = require('path').join(__dirname, 'setWin.json');
 
 const icon = __dirname + '/icon.png';
 
+const appFolder = path.dirname(process.execPath);
+const updateExe = path.resolve(appFolder, '..', 'CCC.exe');
+const exeName = path.basename(process.execPath);
+
 // GCされないようにグローバル宣言
 let mainWindow = null;
 var Menu = null;
@@ -52,9 +56,27 @@ app.on('ready', function () {
     // タスクトレイに右クリックメニューを追加
     var contextMenu = Menu.buildFromTemplate([
         { label: "show", click: function () { mainWindow.focus(); } },
-        { label: "TradeView", click: function () { shell.openExternal("https://coincheck.com/exchange/tradeview"); } },
-        { label: "clickThrough", click: function () { mainWindow.setIgnoreMouseEvents(clickable); } },
-        { label: "not clickThrough", click: function () { mainWindow.setIgnoreMouseEvents(!clickable); } },
+        { label: "TradeView", click: function () {
+          shell.openExternal("https://coincheck.com/exchange/tradeview");
+        } },
+        { label: "clickThrough", click: function () {
+          mainWindow.setIgnoreMouseEvents(clickable);
+        } },
+        { label: "not clickThrough", click: function () {
+          mainWindow.setIgnoreMouseEvents(!clickable);
+        } },
+        { label: "startup", click: function () {
+            app.setLoginItemSetting({
+              openAtLogin: true,
+              path: updateExe
+            });
+        } },
+        { label: "not startup", click: function () {
+            app.setLoginItemSetting({
+              openAtLogin: false,
+              path: updateExe
+            });
+        } },
         { label: "exit", click: function () { mainWindow.close(); } }
     ]);
     tray.setContextMenu(contextMenu);
