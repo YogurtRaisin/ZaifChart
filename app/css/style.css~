@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px lightslategray;
+    border: 5px solid rgb(42, 42, 42);
+    background-color: rgba(24, 24, 24, .7);
+    overflow: hidden;
+    -webkit-app-region: drag; /* ウィンドウごとドラッグできるようにする　*/
+    -webkit-user-select: none; /* 表示されている文字をマウスで選択できないようにする　*/
+}
+
+#dispChart {
+    float: left;
+    font-size: 25px;
+    margin-left: 15%;
+    padding: 5px;
+}
+
+#dispClock {
+    float: left;
+    font-size: 14px;
+    padding: 5px;
+}
+
+#dispCal {
+    font-size: 14px;
+    padding: 15px;
+}
