@@ -8,9 +8,6 @@ const fs = require('fs');
 const setWin = require("./setWin.json");
 const path = require('path').join(__dirname, 'setWin.json');
 
-let mainWindow = null;
-let tray = null;
-
 const icon = __dirname + '/icon.png';
 
 // GCされないようにグローバル宣言
@@ -53,12 +50,12 @@ app.on('ready', function () {
   Menu = electron.Menu;
   Tray = electron.Tray;
   nativeImage = electron.nativeImage;
-  tray = new Tray(nativeImage.createFromPath(__dirname + "/icon.png"));
+  tray = new Tray(nativeImage.createFromPath(__dirname + "/app/icon.png"));
 
     // タスクトレイに右クリックメニューを追加
     var contextMenu = Menu.buildFromTemplate([
-        { label: "表示", click: function () { mainWindow.focus(); } },
-        { label: "終了", click: function () { mainWindow.close(); } }
+        { label: "show", click: function () { mainWindow.focus(); } },
+        { label: "exit", click: function () { mainWindow.close(); } }
     ]);
     tray.setContextMenu(contextMenu);
 
