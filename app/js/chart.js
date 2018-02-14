@@ -12,18 +12,14 @@ connection.onerror = function (error) {
 };
 
 connection.onmessage = function (res) {
-  console.log(res.data);
-
   result = JSON.parse(res.data).trades[0].price;
 
-  console.log(result);
-
-  if (result === lastRate)
+  if (result == lastRate)
     document.getElementById("dispChart").className = "";
   else
     document.getElementById("dispChart").className = result > lastRate ? "rate-up" : "rate-down";
 
-  lastRate = result;
-
   document.getElementById('dispChart').innerHTML = result;
+
+  lastRate = result;
 }
