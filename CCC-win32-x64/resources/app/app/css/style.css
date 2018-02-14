@@ -1,0 +1,33 @@
+body {
+    font-family: 'Bookman Old Style', sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rgba(24, 24, 24, .7);
+    overflow: hidden;
+    -webkit-app-region: drag; /* ウィンドウごとドラッグできるようにする　*/
+    -webkit-user-select: none; /* 表示されている文字をマウスで選択できないようにする　*/
+}
+
+#dispChart {
+    text-align: center;
+    font-size: 2rem;
+    margin: auto;
+}
+
+.rate-up {
+  color: dodgerblue;
+}
+
+.rate-down {
+  color: red;
+}
+
+#dispClock {
+    font-size: 14px;
+    padding: 10px;
+}
+
+#dispCal {
+    font-size: 14px;
+    padding: 15px;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "chart-widget",
+  "version": "1.0.0",
+  "description": "CC-Chart",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/YogurtRaisin/CCChart.git"
+  },
+  "author": "YogurtRaisin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YogurtRaisin/CCChart/issues"
+  },
+  "homepage": "https://github.com/YogurtRaisin/CCChart#readme"
+}
