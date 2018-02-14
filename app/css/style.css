@@ -1,17 +1,18 @@
 body {
-  font-family: 'Bookman Old Style', sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   text-align: center;
-  background-color: rgba(255, 255, 255, .7);
+  color: black;
   background-image: url("../zaif.png");
+  background-size: 200px;
   overflow: hidden;
   -webkit-app-region: drag;  /* ウィンドウごとドラッグできるようにする　*/
   -webkit-user-select: none; /* 表示されている文字をマウスで選択できないようにする　*/
 }
 
 #dispChart {
-  color: black;
   width: 100%
   height:100%;
+  margin-left: 50px;
   text-align: center;
   font-size: 2rem;
 }

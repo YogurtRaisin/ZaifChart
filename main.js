@@ -44,6 +44,8 @@ app.on('ready', function () {
   mainWindow.setPosition(setWin["x"], setWin["y"]);
   //mainWindow.setSize(setWin["width"], setWin["height"]);
 
+  //mainWindow.openDevTools();
+
   // タスクトレイに格納
   Menu = electron.Menu;
   Tray = electron.Tray;
