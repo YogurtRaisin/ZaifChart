@@ -1,16 +1,24 @@
+html, body, #header{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 body {
-    font-family: 'Bookman Old Style', sans-serif;
-    text-align: center;
-    color: white;
-    background-color: rgba(24, 24, 24, .7);
-    overflow: hidden;
-    -webkit-app-region: drag; /* ウィンドウごとドラッグできるようにする　*/
-    -webkit-user-select: none; /* 表示されている文字をマウスで選択できないようにする　*/
+  font-family: 'Bookman Old Style', sans-serif;
+  text-align: center;
+  color: white;
+  background-color: rgba(24, 24, 24, .7);
+  overflow: hidden;
+  /* -webkit-app-region: drag;  ウィンドウごとドラッグできるようにする　*/
+  -webkit-user-select: none; /* 表示されている文字をマウスで選択できないようにする　*/
 }
 
 #dispChart {
     text-align: center;
     font-size: 2rem;
+    padding: auto;
     margin: auto;
 }
 
@@ -23,11 +31,11 @@ body {
 }
 
 #dispClock {
-    font-size: 14px;
-    padding: 10px;
+  font-size: 14px;
+  padding: 10px;
 }
 
 #dispCal {
-    font-size: 14px;
-    padding: 15px;
+  font-size: 14px;
+  padding: 15px;
 }

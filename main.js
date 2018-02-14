@@ -33,10 +33,10 @@ app.on('ready', function () {
     width: 200,
     height: 50,
     resizable: false,
+    //resizable:true,
     frame: false,
     transparent: true,
     alwaysOnTop: true,
-    //resizable:true,
     skipTaskbar: true
    });
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
@@ -53,8 +53,8 @@ app.on('ready', function () {
     // タスクトレイに右クリックメニューを追加
     var contextMenu = Menu.buildFromTemplate([
         { label: "show", click: function () { mainWindow.focus(); } },
-        { label: "TradeView", click: function () {
-          shell.openExternal("https://coincheck.com/exchange/tradeview");
+        { label: "Zaif-mona_jpy", click: function () {
+          shell.openExternal("https://zaif.jp/trade_mona_jpy");
         } },
         { label: "clickThrough", type: 'checkbox', checked: isClickable, click: function(e) {
           if (e.checked) {
